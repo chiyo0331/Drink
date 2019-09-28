@@ -1,0 +1,105 @@
+mixin nav-a(img,textZH,textEN)
+    a(href="#")
+        img(src="img/"+img+".png", alt="連結 縮圖")
+        span=textZH
+        br
+        span=textEN 
+
+mixin title(img,textZH,textEN)
+    div(class="title")
+        img(src="img/"+img+".png" alt="連結 縮圖")
+        span=textZH
+        br
+        span=textEN
+
+mixin about-box(img, title, content, delay)
+    div(class="about-box" data-aos="slide-up" data-aos-duration="1000" data-aos-delay=delay)
+        img(src="img/" + img + ".png" alt="關於獅子堂")
+        div(class="about-content")
+            h2=title
+            p=content
+
+mixin loaction-box(nameZh, nameEg, img)
+    div(class="location-box")
+        div(class="location-title")
+            div(class="location-text")
+                span=nameZh
+                br
+                span=nameEg
+            img(src="img/location.png", alt="據點")
+        div(class="location-img-box")
+            img(src="img/" + img + ".png", alt="據點" )
+
+<!DOCTYPE html>
+html(lang="zh")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title 獅子堂 | 首頁 | 啤酒專賣
+        link(rel="stylesheet", href="style.css")
+        //- AOS CDN
+        link(rel="stylesheet", href="https://unpkg.com/aos@next/dist/aos.css")
+    body
+        header(id="nav")
+            div(class="logo") LION BEER
+                br
+                span(class="logo-zh") 獅子堂啤酒專賣
+            nav
+                +nav-a("home", "關於我們", "ABOUT")
+                +nav-a("location", "全球據點", "LOCATIONS")
+                +nav-a("hot", "熱門經典", "CLASSICAL")
+                +nav-a("contact", "加盟專區", "FRANCHISEE")
+        
+        section(id="banner")
+
+        section(id="about")
+            div(class="bg bg-about")
+            div(class="container")
+                +title("home", "關於我們", "ABOUT")
+                +about-box("icon_beer", "獅子堂 | 獅堂初心 Original Intention", "獅子堂是一個發源於台灣的國際連鎖啤酒品牌，我們的企圖心是要讓全世界同時經由味覺和視覺品嘗到最頂級風味的台灣啤酒。", 0)
+                +about-box("icon_beer", "獅子堂 | 獅堂特色 Feature Of Product", "世界首創獨特風味的啤酒，隨著全球健康生活的趨勢，啤酒也「更平養、更健康、無負擔」，已經成為全球的啤酒潮流。", 100)
+
+
+        section(id="location")
+            div(class="bg bg-location")
+            div(class="container")
+                +title("location", "全球據點", "LOCATIONS")
+                
+                div(id="location-container")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+        
+        section(id="classical")
+            div(class="bg bg-classical")
+            div(class="container")
+                +title("hot", "熱門經典", "CLASSICAL")
+                div(class="classical-box")
+                    div(class="logo" data-aos="slide-up" data-aos-duration="1000") LION BEER
+                        br
+                        span(class="logo-zh") 獅子堂啤酒專賣
+                    img(src="img/beer.png", alt="啤酒" data-aos="slide-up" data-aos-duration="1000" data-aos-delay="100")
+
+        div(class="container")
+            +title("contact", "加盟專區", "FRANCHISEE")
+            div(class="franchisee-box" data-aos="zoom-in" data-aos-duration="1000")
+                a(href="")
+                    div(class="logo") LION BEER
+                            br
+                            span(class="logo-zh") 獅子堂啤酒專賣
+                    h3 加盟諮詢請入內
+        
+        footer Copyright &copy; 2019 LION BEER.
+
+        //- AOS CDN
+        script(src="https://unpkg.com/aos@next/dist/aos.js")
+        script AOS.init();

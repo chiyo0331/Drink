@@ -1,0 +1,234 @@
+$color-black: #111;
+$color-gold: rgb(233, 202, 64);
+
+@mixin nav {
+    color: white;
+    display: inline-block;
+    font-size: 0.7em;
+    width: 120px;
+
+    img {
+        width: 30px;
+        float: left;
+        padding-right: 7px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $color-black;
+    position: relative;
+    
+}
+
+// 導覽區塊
+#nav {
+    background-color: $color-black;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    color: $color-gold;
+    height: 10vh;
+    padding: 15px;
+    // 定位 固定
+    position: fixed;
+    // 寬度回跑掉 - 自己設定
+    width: 100vw;
+    // 深度 - 數字越大越前面
+    z-index: 10;
+
+    a {
+        text-decoration: none;
+        @include nav;
+    }
+
+    // 滑入時 修改 span 樣式
+    a:hover span {
+        opacity: 0.5;
+    }
+
+    nav {
+        padding-top: 15px;
+    }
+}
+
+.logo {
+    font-size: 1.3em;
+    padding: 0 15px;
+    color: $color-gold;
+    letter-spacing: 3px;
+
+    .logo-zh {
+        font-size: 0.6em;
+        letter-spacing: 7px;
+        margin-right: -7px;
+    }
+}
+
+// 標題
+.title {
+    @include nav;
+}
+
+// 橫幅
+#banner {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    background-image: url("https://images.unsplash.com/photo-1504502350688-00f5d59bbdeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    background-size: cover;
+}
+
+// 關於我
+#about {
+    height: 90vh;
+    // 父元素 相對定位
+    position: relative;
+    
+    color: white;
+
+    .about-box {
+        display: grid;
+        grid-template-columns: 10% 90%;
+        padding: 30px 0;
+        align-items: center;
+
+        img {
+            width: 60px;
+            padding: 20px 0;
+        }
+
+        h2 {
+            font-weight: 400;
+            font-size: 1.6em;
+            padding: 20px 0;
+        }
+
+        p {
+            font-weight: 100;
+            font-size: 0.8em;
+            line-height: 2;
+        }
+    }
+}
+
+
+
+// 熱門經典
+#classical {
+    height: 90vh;
+    position: relative;
+
+    .classical-box {
+        text-align: center;
+    }
+}
+
+// 背景
+.bg {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    // 濾鏡：模糊、亮度
+    filter: blur(2px) brightness(30%);
+    // 子元素 絕對定位
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.bg-about {
+    background-image: url(img/about.jpg);
+}
+
+.bg-location {
+    background-image: url(img/about.jpg);
+}
+
+.bg-classical {
+    background-image: url(img/about.jpg);
+}
+
+#location {
+    // 最小高度
+    min-height: 90vh;
+    position: relative;
+
+    #location-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+
+        .location-title {
+            text-align: right;
+            
+            .location-text {
+                color: white;
+                font-size: 0.7em;
+                text-align: center;
+                display: inline-block;
+            }
+        }
+    }
+
+    .location-img-box {
+        overflow: hidden;
+    }
+    .location-img-box img {
+        width: 100%;
+        transition: 1s;
+    }
+    .location-img-box:hover img {
+        transform: scale(1.25);
+    }
+}
+
+// 內容區塊 container
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+// 加盟專區
+.franchisee-box {
+    text-align: center;
+    padding: 100px 0;
+
+    a {
+        text-decoration: none;
+        color: $color-gold;
+        
+        .logo {
+            font-size: 2.5em;
+
+            .logo-zh {
+                font-size: 0.65em;;
+            }
+        }
+
+        h3 {
+            font-size: 2.1em;
+            padding: 10px 0;
+        }
+    }
+}
+
+// 頁尾
+footer {
+    text-align: center;
+    color: white;
+    opacity: 0.5;
+    font-size: 0.6em;
+    padding: 20px 0;
+    background-color: #000;
+}
+
+@media screen and (max-width:1024px){
+    
+}
